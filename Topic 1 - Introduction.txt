@@ -1,0 +1,847 @@
+Applied DatabasesIntroduction
+
+HIGHER DIPLOMA IN DATA ANALYTICS
+
+
+
+What is data?
+
+.Datum
+
+
+Single piece of information fact or statistic.
+.Data
+
+
+A series of facts or statistics.
+.Types of Data
+
+.Non digital information.
+
+.Digital Information
+
+.Active Digital Footprint
+
+.Passive Digital Footprint
+
+
+
+
+
+
+
+
+Ever increasing data… per minute
+
+.120+ new professionals join
+
+
+
+
+
+.3.6 million searches
+
+
+
+
+.4.1 million videos watched
+
+
+
+
+.456,000 tweets sent
+
+
+
+
+.18 million forecast requests received
+
+
+
+
+
+
+Database
+
+
+
+myDoc.doc
+
+myDocJan8th.doc
+
+myDocJan9th.doc
+
+
+
+
+
+.A Database is a collectionof relateddata, organisedin a way thatdata can be easily accessed,managed and updated.
+
+
+
+
+
+
+
+
+Types of Database
+
+.Relational Databases
+
+
+
+
+
+
+
+
+
+.Non-Relational (NoSQL) Databases
+
+
+
+
+
+
+
+
+
+Relational Databases
+
+.A relational database consists of a set of tables used for storing data. 
+
+.A table is collection of related data
+
+.Each table has a unique name and may relate to one or more other tables in the database through common values.
+
+
+
+
+
+Relational Databases
+
+.A table in a database is a collection of rows and columns. 
+
+
+Tables are also known as entities or relations.
+.A row contains data pertaining to a single item or record in a table. 
+
+
+Rows are also known as records or tuples.
+.A column contains data representing a specific characteristic of the records in the table. 
+
+
+Columns are also known as fields or attributes.
+
+
+
+Spreadsheets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spreadsheets
+
+
+
+
+
+
+
+
+
+
+Database Schema
+
+.A database consists of schemas, tables, views and other objects.
+
+.A database schema represents the logical configuration of all or part of a database.
+
+.It defines how the data, and relationships between the data, is stored.
+
+
+
+
+
+Database Schema
+
+.Two types of Schema:
+
+.Physical Schema
+
+
+
+Defines out how data is stored physically on a storage system in terms of files and indices.
+.Logical Schema
+
+
+
+Defines the logical constraints that apply to the stored data, the tables in the database and the relationships between them.
+
+
+
+Logical Schema
+
+.The Logical Schema is designed before the database is created.
+
+
+.No data is contained in the logical schema.
+
+
+
+
+
+Logical Schema
+
+Patient Table
+
+ 
+First_Namevarchar(50)
+
+ 
+Surnamevarchar(50)
+
+ 
+Addressvarchar(200)
+
+ 
+PPSNvarchar(10)
+
+ 
+Doctorvarchar(50)
+
+ 
+Doctor_Phoneinteger
+
+ 
+
+Patient Table
+
+ 
+First_Name
+
+ Surname
+
+ Address
+
+ PPSN
+
+ Doctor
+
+ Doctor_Phone
+
+ 
+John
+
+ Smyth
+
+ Athlone
+
+ 7629913X
+
+ Dr.Jones
+
+ 12345
+
+ 
+Alan
+
+ Mulligan
+
+ Galway
+
+ 9893333F
+
+ Dr.Murphy
+
+ 88335
+
+ 
+Fred
+
+ Collins
+
+ Castlebar
+
+ 9898823W
+
+ Dr.Jones
+
+ 12345
+
+ 
+
+
+
+
+
+Logical Schema
+
+Patient Table
+
+ 
+First_Namevarchar(50)
+
+ 
+Surnamevarchar(50)
+
+ 
+Addressvarchar(200)
+
+ 
+PPSNvarchar(10)
+
+ 
+DoctorIDinteger
+
+ 
+
+Patient Table
+
+ 
+First_Name
+
+ Surname
+
+ Address
+
+ PPSN
+
+ DoctorID
+
+ 
+John
+
+ Smyth
+
+ Athlone
+
+ 7629913X
+
+ 100
+
+ 
+Alan
+
+ Mulligan
+
+ Galway
+
+ 9893333F
+
+ 101
+
+ 
+Fred
+
+ Collins
+
+ Castlebar
+
+ 9898823W
+
+ 100
+
+ 
+
+Doctor Table
+
+ 
+DoctorIDinteger
+
+ 
+Namevarchar(50)
+
+ 
+Phone integer
+
+ 
+
+Doctor Table
+
+ 
+DoctorID
+
+ Name
+
+ Phone
+
+ 
+100
+
+ Dr.Jones
+
+ 12345
+
+ 
+101
+
+ Dr.Murphy
+
+ 88335
+
+ 
+
+
+
+
+
+
+
+Spreadsheet vs Database
+
+Patient Table
+
+ 
+First_Name
+
+ Surname
+
+ Address
+
+ PPSN
+
+ DoctorID
+
+ 
+John
+
+ Smyth
+
+ Athlone
+
+ 7629913X
+
+ 100
+
+ 
+Alan
+
+ Mulligan
+
+ Galway
+
+ 9893333F
+
+ 101
+
+ 
+Fred
+
+ Collins
+
+ Castlebar
+
+ 9898823W
+
+ 100
+
+ 
+
+Doctor Table
+
+ 
+DoctorID
+
+ Name
+
+ Phone
+
+ 
+100
+
+ Dr.Jones
+
+ 12345
+
+ 
+101
+
+ Dr.Murphy
+
+ 88335
+
+ 
+
+
+
+
+
+
+
+Database Management System (DBMS)
+
+.A Database Management System (DBMS) is software for creating and managing databases.
+
+.The DBMS interacts with the user, the database itself, and other systems in order to store, retrieve and process data.
+
+
+
+
+
+Database Management System (DBMS)
+
+.The DBMS provides a centralized view of data that can be accessed by multiple users, from multiple locations, in a controlled manner.
+
+.The DBMS can limit what data the end user sees, as well as how that end user can view the data, providing many views of a single database schema.
+
+
+
+Employee Table
+
+ 
+EID varchar(50)
+
+ 
+Namevarchar(50)
+
+ 
+Salaryvarchar(200)
+
+ 
+Next of Kinvarchar(50)
+
+ 
+Job Titlevarchar(50)
+
+ 
+
+Employee Table
+
+ 
+EID varchar(50)
+
+ 
+Namevarchar(50)
+
+ 
+Salaryvarchar(200)
+
+ 
+Next of Kinvarchar(50)
+
+ 
+Job Titlevarchar(50)
+
+ 
+
+Employee Table
+
+ 
+EID varchar(50)
+
+ 
+Namevarchar(50)
+
+ 
+Job Titlevarchar(50)
+
+ 
+
+
+
+
+
+Database Management System (DBMS)
+
+.The DBMS provides data independence, freeing users (and application programs) from knowing where or how the data is stored. Any changes in how or where the data is stored is completely transparent due to the DBMS.
+
+.CRUD (Create, Read, Update, Delete) functions.
+
+
+
+
+
+DBMS Functions
+
+.Data Storage Management
+
+.Security
+
+.Backup and Recovery
+
+
+
+
+
+
+
+
+DBMS Functions
+
+.Transaction Management
+
+.Debit Customer a/c
+
+.Update Shipping Table
+
+.Update Products Table
+
+.Credit Store a/c
+
+
+
+
+
+
+
+DBMS Functions
+
+.Data integrity
+
+
+
+
+Patient Table
+
+ 
+First_Name
+
+ Surname
+
+ Address
+
+ PPSN
+
+ DoctorID
+
+ 
+John
+
+ Smyth
+
+ Athlone
+
+ 7629913X
+
+ 100
+
+ 
+Alan
+
+ Mulligan
+
+ Galway
+
+ 9893333F
+
+ 101
+
+ 
+Fred
+
+ Collins
+
+ Castlebar
+
+ 9898823W
+
+ 100
+
+ 
+
+Doctor Table
+
+ 
+DoctorID
+
+ Name
+
+ Phone
+
+ 
+100
+
+ Dr.Jones
+
+ 12345
+
+ 
+101
+
+ Dr.Murphy
+
+ 88335
+
+ 
+
+
+
+
+Patient Table
+
+ 
+First_Namevarchar(50)
+
+ 
+Surnamevarchar(50)
+
+ 
+Addressvarchar(200)
+
+ 
+PPSNvarchar(10)
+
+ 
+DoctorIDinteger
+
+ 
+
+Doctor Table
+
+ 
+DoctorIDinteger
+
+ 
+Namevarchar(50)
+
+ 
+Phone integer
+
+ 
+
+
+
+
+
+
+
+
+DBMS Functions
+
+.Concurrency
+
+
+
+
+
+
+Advantages of DBMSs
+
+.Controlling Redundancy
+
+
+Instead of each application having its own files with data stored multiple times, a centralised DBMS can store it once and allow many users to access it eliminating duplication.
+
+
+Patient Table
+
+ 
+First_Name
+
+ Surname
+
+ Address
+
+ PPSN
+
+ DoctorID
+
+ 
+John
+
+ Smyth
+
+ Athlone
+
+ 7629913X
+
+ 100
+
+ 
+Alan
+
+ Mulligan
+
+ Galway
+
+ 9893333F
+
+ 101
+
+ 
+Fred
+
+ Collins
+
+ Castlebar
+
+ 9898823W
+
+ 100
+
+ 
+
+Doctor Table
+
+ 
+DoctorID
+
+ Name
+
+ Phone
+
+ 
+100
+
+ Dr.Jones
+
+ 12345
+
+ 
+101
+
+ Dr.Murphy
+
+ 88335
+
+ 
+
+
+
+
+
+
+
+
+
+Advantages of DBMSs
+
+.Data Integrity
+
+.Enforcement of Standards
+
+.Backup and Recovery
+
+.Security
+
+
+
+
+
+Disadvantages of DBMSs
+
+.Complexity
+
+.Size
+
+.Performance
+
+.Higher impact of failure
+
+
+
+
+

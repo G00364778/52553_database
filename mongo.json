@@ -1,0 +1,11 @@
+{"_id":"G","name":"Galway","pop":258058.0}
+{"_id":"WH","name":"Westmeath","pop":88770.0}
+{"_id":"MO","name":"Mayo","pop":130507.0}
+{"_id":"LM","name":"Leitrim","pop":32044.0}
+{"_id":"D","name":"Dublin","pop":1.345e+06}
+{"_id":1.0,"car":{"reg":"191-G-123","engineSize":1.5},"addresses":["G","WH"]}
+{"_id":2.0,"car":{"reg":"11-LM-988","engineSize":1.3},"addresses":["LM"]}
+{"_id":3.0,"car":{"reg":"142-G-28","engineSize":1.0},"addresses":["MO","G","WH"]}
+{"_id":4.0,"addresses":["D"]}
+{"_id":5.0,"car":{"reg":"05-D-1234","engineSize":1.4},"addresses":["D","G"]}
+{"_id":6.0,"car":{"reg":"152-MO-134","engineSize":1.5},"addresses":["MO"]}
