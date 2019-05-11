@@ -1,0 +1,8 @@
+SELECT c.Name, c.Population FROM world.city as c
+where c.Population in (SELECT min(Population) FROM world.hasvisitedcity as v
+	left join world.person as p
+	on p.personId=v.personID
+	left join world.city as c
+	on c.ID=v.cityID
+	where age=(SELECT min(age) FROM world.person)
+);

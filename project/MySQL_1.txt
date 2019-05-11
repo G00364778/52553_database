@@ -1,0 +1,14 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_ppl_visited_country`(land varchar(52))
+    DETERMINISTIC
+BEGIN
+	SELECT p.personID, p.personname, c.Name, v.dateArrived, y.Name FROM world.hasvisitedcity as v
+	#SELECT * FROM world.hasvisitedcity as v
+	left join world.city as c
+	on c.ID=v.cityID
+	left join world.person as p
+	on p.personID=v.personID
+	left join world.country as y
+	on c.CountryCode=y.Code
+	where y.Name like concat('%',land,'%')
+	order by p.personname;
+END

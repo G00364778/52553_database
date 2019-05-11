@@ -1,0 +1,6 @@
+SELECT c.Name, c.Continent, c.Population FROM world.country as c
+where c.Population in (
+	SELECT max(d.Population)  FROM world.country as d
+	where d.Population > 0
+	group by d.Continent
+); 

@@ -1,0 +1,9 @@
+update world.city set Population = 
+case
+    when District = 'Western Cape' then Population -10000 
+    when District = 'Eastern Cape' then Population +1000 
+    when District = 'Free State' then Population +2000
+    else Population
+end
+where CountryCode like 'ZAF'
+and District in ('Western Cape', 'Eastern Cape', 'Free State')

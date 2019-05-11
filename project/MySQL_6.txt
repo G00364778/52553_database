@@ -1,0 +1,13 @@
+SELECT Name, IndepYear, #year(now())-IndepYear as ilen, Population, GovernmentForm,
+    case
+        when IndepYear is null then 'n/a '
+        when year(now())-IndepYear < 10 then 
+            concat(if(Population>100000000,"Large ",""), 'New ', GovernmentForm)
+        when year(now())-IndepYear between 11 and 49 then 
+            concat(if(Population>100000000,"Large ",""),'Modern ', GovernmentForm)
+        when year(now())-IndepYear between 50 and 100 then 
+            concat(if(Population>100000000,"Large ",""),'Early ', GovernmentForm)
+        when year(now())-IndepYear > 100 then 
+            concat(if(Population>100000000,"Large ",""),'Old ', GovernmentForm)
+    end as 'Desc'
+FROM world.country;

@@ -1,0 +1,70 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_ppl_visited_country`(land varchar(52))
+    DETERMINISTIC
+BEGIN
+	SELECT p.personID, p.personname, c.Name, v.dateArrived, y.Name FROM world.hasvisitedcity as v
+	#SELECT * FROM world.hasvisitedcity as v
+	left join world.city as c
+	on c.ID=v.cityID
+	left join world.person as p
+	on p.personID=v.personID
+	left join world.country as y
+	on c.CountryCode=y.Code
+	where y.Name like concat('%',land,'%')
+	order by p.personname;
+END
+
+
+CREATE FUNCTION `ren_continent`(original varchar(52)) RETURNS varchar(52)
+    DETERMINISTIC
+BEGIN
+	if original in ('North America','South America')  then
+		return 'Americas';
+	elseif  original in ('Oceanoa') then 
+		return 'Australia';
+	elseif original in ('Antarctica') then 
+		return 'South Pole';
+    else
+		return original;
+	end if;
+END
+
+
+SELECT c.Name, c.Continent, c.Population FROM world.country as c
+where c.Population in (
+	SELECT max(d.Population)  FROM world.country as d
+	where d.Population > 0
+	group by d.Continent
+); 
+
+
+SELECT c.Name, c.Population FROM world.city as c
+where c.Population in (SELECT min(Population) FROM world.hasvisitedcity as v
+	left join world.person as p
+	on p.personId=v.personID
+	left join world.city as c
+	on c.ID=v.cityID
+	where age=(SELECT min(age) FROM world.person)
+);
+
+
+update world.city set Population = 
+case
+    when District = 'Western Cape' then Population -10000 
+    when District = 'Eastern Cape' then Population +1000 
+    when District = 'Free State' then Population +2000
+    else Population
+end
+where CountryCode like 'ZAF'
+and District in ('Western Cape', 'Eastern Cape', 'Free State')SELECT Name, IndepYear, #year(now())-IndepYear as ilen, Population, GovernmentForm,
+    case
+        when IndepYear is null then 'n/a '
+        when year(now())-IndepYear < 10 then 
+            concat(if(Population>100000000,"Large ",""), 'New ', GovernmentForm)
+        when year(now())-IndepYear between 11 and 49 then 
+            concat(if(Population>100000000,"Large ",""),'Modern ', GovernmentForm)
+        when year(now())-IndepYear between 50 and 100 then 
+            concat(if(Population>100000000,"Large ",""),'Early ', GovernmentForm)
+        when year(now())-IndepYear > 100 then 
+            concat(if(Population>100000000,"Large ",""),'Old ', GovernmentForm)
+    end as 'Desc'
+FROM world.country;

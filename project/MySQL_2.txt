@@ -1,0 +1,13 @@
+CREATE FUNCTION `ren_continent`(original varchar(52)) RETURNS varchar(52)
+    DETERMINISTIC
+BEGIN
+	if original in ('North America','South America')  then
+		return 'Americas';
+	elseif  original in ('Oceanoa') then 
+		return 'Australia';
+	elseif original in ('Antarctica') then 
+		return 'South Pole';
+    else
+		return original;
+	end if;
+END

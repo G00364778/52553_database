@@ -1,0 +1,38 @@
+// 4.3.1 Average Engine Size
+db.docs.aggregate({$group:{_id:null,Average:{$avg:"$car.engineSize"}}})
+
+//4.3.2 Categorise County Populations
+db.docs.aggregate([
+    {$bucket:{
+        groupBy:"$pop",
+        boundaries:[0,50000,100000,150000],
+        default:"Other",
+        output:{
+            "counties":{$push:"$name"}
+        }
+      }
+    }
+])
+
+// 4.3.3 Redefine County Populations 
+ db.docs.aggregate(
+  [
+    {
+      $match:
+        {
+          pop:{$exists:true}
+        }
+    },
+    {
+      $project:
+        {
+          name:1, 
+          pop:
+            {
+              $cond:{if:{$lte:["$pop",100000]}, 
+                then: "Small County", else:"Big County"}
+            }
+        }
+    }
+  ]
+ )
